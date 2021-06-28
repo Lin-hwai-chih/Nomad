@@ -1012,10 +1012,12 @@ section.footer-section {
     justify-content: center;
   }
 
-  svg.icon-done {
-    width: 50px;
-    height: 50px;
-    fill: white;
+  .material-icons .md-36{
+    margin: 0 auto;
+    color: white;    
+  }
+  .material-icons.md-36{
+    font-size: 36px;
   }
 
   .font-weight {
