@@ -186,9 +186,9 @@ section.pagination-section ul.pagination {
   justify-content: center;
 }
 
-section.pagination-section li.arrow {
+/* section.pagination-section li.arrow {
   flex: 0 1 15%;
-}
+} */
 
 section.pagination-section ul.pagination li {
   color: black;
@@ -232,6 +232,10 @@ section.pagination-section svg {
 }
 
 .modal {
+  display: none;
+}
+
+.modalCart{
   display: none;
 }
 
@@ -360,9 +364,9 @@ section.pagination-section svg {
     display: block;
     margin: 20px 0;
     font-size: 23px;
-    cursor: pointer;
-    
+    cursor: pointer;    
   }
+
   .filter_product p:hover {
     text-shadow: 0 0 4px pink, 0 0 8px purple;
     transition: 0.5s;
@@ -387,7 +391,7 @@ section.pagination-section svg {
     fill: #a75353;
   }
 
-  div.group1 a.cart {
+  div.group1 div.cart {
     /* background: url(../icon/Icon\ feather-shopping-cart.svg); */
     width: 30px;
     height: 30px;
@@ -395,10 +399,16 @@ section.pagination-section svg {
         background-size: contain; */
     margin-right: 10px;
     cursor: pointer;
-    fill: none;
+    /* fill: none; */
+    transition: 0.1s;
   }
   .fill1 {
     fill: #123132;
+  }
+
+  div.group1 div.cart:active{
+    transform: scale(0.8);
+
   }
 
   .group {
@@ -412,6 +422,7 @@ section.pagination-section svg {
   .group1 {
     display: flex;
     align-items: center;
+    fill:none;
   }
 
   .product_content {
@@ -533,7 +544,7 @@ section.pagination-section svg {
         transition: 0.5s ease-in-out;
         z-index: 999; */
 
-    position: fixed;
+    /* position: fixed;
     z-index: 998;
     top: 0;
     left: 0;
@@ -543,9 +554,9 @@ section.pagination-section svg {
     pointer-events: none;
     background-color: rgba(0, 0, 0, 0.4);
     transition: 0.5s ease-in-out;
-  }
+  } */
 
-  .lightbox-target div.lightbox-container {
+  /* .lightbox-target div.lightbox-container {
     width: 100%;
     height: 100%;
     position: relative;
@@ -566,20 +577,20 @@ section.pagination-section svg {
     left: 58rem;
     border-radius: 10px;
     text-align: center;
-  }
+  } */
 
   /* 利用偽元素做出 \ 以及 / 的線條 */
-  .lightbox-close:after {
+  /* .lightbox-close:after {
     width: 1px;
     height: 1px;
     content: "";
     display: block;
     background: #fff;
-    position: absolute;
+    position: absolute; */
     /* top: 23px;
         left: 10px;
         transform: rotate(45deg); */
-  }
+  /* }
 
   .lightbox-close:before {
     width: 1px;
@@ -587,10 +598,86 @@ section.pagination-section svg {
     content: "";
     display: block;
     background: #fff;
-    position: absolute;
+    position: absolute; */
     /* top: 23px;
         left: 10px;
         transform: rotate(-45deg); */
+  }
+
+  /* 以下是購物車光箱 */
+  .modalCart {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    transition: 0.7s ease-in-out;
+    /* visibility:0.7s ease-in-out; */
+    z-index: 999;
+    /* pointer-events: none; */
+  }
+
+  .modalCart.show {
+    opacity: 1;
+    visibility: visible;
+    /* pointer-events: all; */
+  }
+
+  .modalCart-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #333333;
+    background: #ffffff;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    padding: 30px 50px;
+    border-radius: 10px;
+  }
+
+  .modalCart-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* height: inherit; */
+    margin-bottom: 10px;
+  }
+  .modalCart-inner p {
+    margin: 15px 0;
+    color: var(--fourth-color);
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .modalCart-close {
+    padding: 5px 10px;
+    background: #139dd7;
+    color: #ffffff;
+    border-radius: 10px;
+  }
+
+  .success-icon-cart {
+    width: 70px;
+    height: 70px;
+    background-color: #f0a500;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .material-icons.md-36{
+    margin: 0 auto;
+    color: white;    
+  }
+  .material-icons.md-36{
+    font-size: 36px;
   }
 
   .content {
